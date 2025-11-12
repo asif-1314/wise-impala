@@ -1,0 +1,33 @@
+<template>
+  <lightning-card title="Contacts">
+    <div class="slds-p-around_small">
+      <template if:true={hasContacts}>
+        <lightning-layout vertical-align="start" multiple-row="true">
+          <template for:each={contacts} for:item="c">
+            <lightning-layout-item key={c.Id} padding="around-small">
+              <div class="contact-card">
+                <div class="contact-name">{c.Name}</div>
+                <div class="contact-meta">
+                  <template if:true={c.Email}>
+                    <div class="contact-email">{c.Email}</div>
+                  </template>
+                  <template if:true={c.Phone}>
+                    <div class="contact-phone">{c.Phone}</div>
+                  </template>
+                </div>
+              </div>
+            </lightning-layout-item>
+          </template>
+        </lightning-layout>
+      </template>
+
+      <template if:false={hasContacts}>
+        <p>No contacts found.</p>
+      </template>
+
+      <template if:true={error}>
+        <p class="slds-text-color_error">Error loading contacts. Check console for details.</p>
+      </template>
+    </div>
+  </lightning-card>
+</template>
