@@ -1,0 +1,21 @@
+<template>
+  <lightning-card title="Contact Filter">
+    <div class="slds-p-around_small">
+      <lightning-input
+        label="Name contains"
+        value={nameContains}
+        placeholder="Enter partial name"
+        onchange={handleNameChange}>
+      </lightning-input>
+
+      <div class="slds-m-top_small slds-grid slds-grid--pull-padded">
+        <div class="slds-col slds-size_1-of-2 slds-p-horizontal_xx-small">
+          <lightning-button label="Apply" variant="brand" onclick={handleApplyClick}></lightning-button>
+        </div>
+        <div class="slds-col slds-size_1-of-2 slds-p-horizontal_xx-small">
+          <lightning-button label="Clear" variant="neutral" onclick={handleClearClick}></lightning-button>
+        </div>
+      </div>
+    </div>
+  </lightning-card>
+</template>
